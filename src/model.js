@@ -1,29 +1,35 @@
 
 import param from "./parameters.js"
-import {each,range,map,mean} from "lodash-es"
-import {rad2deg,deg2rad} from "./utils"
+import {each,range,map,mean,sumBy} from "lodash-es"
+import {torusdist} from "./utils"
+import  {square as sqlat} from "lattices"
+import {sigmoid} from "./utils.js"
 
-const L = param.L;
+const N = param.N;
 const dt = param.dt;
 
 var agents = [];
 
+const others_inradius = (a,others,R) => others.filter(b=> (torusdist(a,b,2*N) < R) )
+	
+
+const set_neighborhoods = (agents) => {
+	each(agents,a=>{ 
+		a.nn_outer = others_inradius(a,agents,param.outer_radius.widget.value()) 
+		a.nn_inner = others_inradius(a,a.nn_outer,param.inner_radius.widget.value()) 		
+	})	
+}
+
 const initialize = () => {
 
-	// set/reset timer
 	param.timer={}; param.tick=0;
 
-	// make agents
+	const s = sqlat(N).boundary("periodic").scale(2*N);
 
-	const N = param.number_of_particles.choices[param.number_of_particles.widget.value()];
-	
-	agents = map(range(N), i => { return {
-				index:i, 
-				x:L*Math.random(), 
-				y:L*Math.random(),
-				theta: 2*Math.PI*Math.random(),
-			} 
-	});
+	agents = s.nodes;
+	agents.forEach(a=>{a.state= 2 * param.epsilon * (Math.random()-0.5)});
+
+	set_neighborhoods(agents);
 	
 };
 
@@ -31,39 +37,22 @@ const go  = () => {
 	
 	param.tick++;
 	
+	const beta = param.interaction_steepness.widget.value();
+	
+	each(agents,a=>{		
+		var h = 2*sumBy(a.nn_inner,x=>x.state) - sumBy(a.nn_outer,x=>x.state);
+		h=h / a.nn_outer.length;
+		a.sigma = sigmoid(h,beta);			
+	})
+	
 	each(agents,a=>{
-		
-		var dx = dt*param.speed.widget.value()*Math.cos(a.theta);
-		var dy = dt*param.speed.widget.value()*Math.sin(a.theta);
-		
-		const x_new = a.x + dx;
-		const y_new = a.y + dy;
-		
-		if (x_new < 0) {dx+=L};
-		if (y_new < 0) {dy+=L};
-		if (x_new > L) {dx-=L};
-		if (y_new > L) {dy-=L};  
-		
-		a.x += dx;
-		a.y += dy;
-		
-		var neighbors = agents.filter(d =>  (d.x-a.x)**2 + (d.y-a.y)**2 <= param.interaction_radius.widget.value()**2 )
-		
-		var mx = mean(map(neighbors,x=> Math.cos(deg2rad(x.theta))));
-		var my = mean(map(neighbors,x=> Math.sin(deg2rad(x.theta))));	
-		
-		a.theta = rad2deg(Math.atan2(my,mx))
-		
-		a.theta += deg2rad(param.wiggle.widget.value())*(Math.random()-0.5)
-		
+		a.state  += param.dt*(a.sigma-a.state)
 	})
 	
 }
 
 const update = () => {
-	
-	each(agents,x => {x.active = x.index < param.number_of_particles.widget.value() ? true : false})
-
+	set_neighborhoods(agents);
 }
 
 export {agents,initialize,go,update}

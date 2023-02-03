@@ -11,3 +11,11 @@
 	stroke: black;
 	stroke-width: 1px;
 }
+
+#innercircle {
+	fill: rgb(200,200,200);
+}
+
+#outercircle {
+	fill: rgb(50,50,50);
+}

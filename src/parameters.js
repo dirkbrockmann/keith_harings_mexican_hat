@@ -1,26 +1,18 @@
 export default {
-		dt:1,
-		L:100,
-		agentsize: 1.0,
-	
-		speed: {
-			range:[0,1],
-			default:0.2
+		dt:0.1,
+		N:50,
+		epsilon:0.01, // initial noise
+   	 	inner_radius: {
+			range:[1,5],
+			default:3.5
 		},
-		wiggle: {
-			range:[0,180],
-			default:50
+		outer_radius: {
+			range:[5.5,10],
+			default:7.0
 		},
-		interaction_radius:{
-			range : [0,5],
-			default : 3
-		},
-		number_of_particles : {
-			choices:[50,100,200,400],
-		default:2
-		},
-		color_by_heading: {
-			default: true
+		interaction_steepness:{
+			range : [5,20],
+			default : 15
 		}
 }
 
