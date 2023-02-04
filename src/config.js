@@ -1,9 +1,12 @@
 export default { 
 	widgets:{
+		fontsize:20,
+		slider_girth: 16,
+		slider_knob:14,
 		slider_size: 400,
 		slider_show: true,
-		slider_gap : 1.5,
-		slider_anchor: {x:1,y:8},
+		slider_gap : 2,
+		slider_anchor: {x:1,y:7.5},
 		playbutton_size: 120,
 		playbutton_anchor:{x:3,y:2},
 		backbutton_anchor:{x:4,y:5},

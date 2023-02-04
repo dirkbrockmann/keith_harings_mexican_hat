@@ -16,6 +16,9 @@ const sliders = map(va,
 					.range(v.range)
 					.value(v.default)
 					.size(cfg.widgets.slider_size)
+					.girth(cfg.widgets.slider_girth)
+					.knob(cfg.widgets.slider_knob)
+					.fontsize(cfg.widgets.fontsize)
 		);
 
 
