@@ -1,4 +1,10 @@
+[cc-by]: http://creativecommons.org/licenses/by/4.0/
+[cc-by-image]: https://i.creativecommons.org/l/by/4.0/88x31.png
+[cc-by-shield]: https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg
+
 # Keith Haring's Mexican Hat
+
+[![CC BY 4.0][cc-by-shield]][cc-by]
 
 This explorable illustrates one of the basic principles of spontaneous pattern formation: local excitation and long-range inhibition. 
 
@@ -43,5 +49,12 @@ Go to the directory, install, build and show using `npm`:
 3. `npm run build`
 4. `npm run show`
 
+---
 
+## License
+
+This work is licensed under a
+[Creative Commons Attribution 4.0 International License][cc-by].
+
+[![CC BY 4.0][cc-by-image]][cc-by]
 

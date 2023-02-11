@@ -2,6 +2,7 @@
   "name": "@explorables/keith_harings_mexican_hat",
   "title": "Keith Haring's Mexican Hat",
   "version": "1.0.5",
+    "license": "CC-BY-4.0",
   "description": "Pattern Formation by Local Excitation and Long-Range Inhibition. An simple model for spontaneous pattern formation in a spatial system",
   "repository": {
     "type": "git",
@@ -21,7 +22,6 @@
     "explorables",
     "visualization"
   ],
-  "license": "ISC",
   "dependencies": {
     "d3": "^7.8.2",
     "d3-widgets": "^1.0.18",
