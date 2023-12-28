@@ -1,0 +1,14 @@
+
+.innercircle {
+	stroke:black;
+	stroke-width:1px;
+	fill: rgb(200,200,200);
+}
+
+.outercircle {
+	stroke:black;
+	stroke-width:1px;
+	fill: rgb(80,80,80);
+}
+
+

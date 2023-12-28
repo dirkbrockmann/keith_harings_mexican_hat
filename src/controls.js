@@ -5,7 +5,7 @@ import cfg from "./config.js"
 import parameters from "./parameters.js"
 
 import {add_id_label,add_widget,variables,booleans,choices} from "./utils.js"
-
+import styles from "./styles.module.css"
 
 const va = add_id_label(variables(parameters));
 
@@ -18,7 +18,7 @@ const sliders = map(va,
 					.size(cfg.widgets.slider_size)
 					.girth(cfg.widgets.slider_girth)
 					.knob(cfg.widgets.slider_knob)
-					.fontsize(cfg.widgets.fontsize)
+				//	.fontsize(cfg.widgets.fontsize)
 		);
 
 
@@ -40,12 +40,12 @@ export default (controls,grid)=>{
 	cartoon = controls.append("g").attr("id","cartoon")
 		.attr("transform","translate("+cartoon_pos.x+","+cartoon_pos.y+")")
 	
-	cartoon.selectAll("#outercircle").data([parameters.outer_radius]).enter().append("circle")
-		.attr("id","outercircle")
+	cartoon.selectAll("."+styles.outercircle).data([parameters.outer_radius]).enter().append("circle")
+		.attr("class",styles.outercircle)
 		.attr("r",d=> cfg.widgets.cartoon_scale*d.widget.value())
 	
-	cartoon.selectAll("#innercircle").data([parameters.inner_radius]).enter().append("circle")
-		.attr("id","innercircle")
+	cartoon.selectAll("."+styles.innercircle).data([parameters.inner_radius]).enter().append("circle")
+		.attr("class",styles.innercircle)
 		.attr("r",d=> cfg.widgets.cartoon_scale*d.widget.value())
 
 	
