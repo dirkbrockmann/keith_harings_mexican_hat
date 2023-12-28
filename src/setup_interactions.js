@@ -18,7 +18,7 @@ export default (display,controls,config) => {
 	ct.reset.update(()=>resetparameters(controls))	
 	ct.go.update(()=>startstop(display,config))
 	ct.setup.update(()=>initialize(display,config))
-	param.inner_radius.widget.update_end(update)
+	//param.inner_radius.widget.update_end(update)
 	param.outer_radius.widget.update_end(update)
 
 	param.inner_radius.widget.update(cartoon_update)

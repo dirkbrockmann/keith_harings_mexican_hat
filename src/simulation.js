@@ -1,5 +1,5 @@
 import {initialize as model_init, update as model_update, go as model_go} from "./model.js"
-import {initialize as visual_init, update as visual_update, go as visual_go, cartoon_update} from "./viz.js"
+import {initialize as visual_init, go as visual_go, cartoon_update} from "./viz.js"
 
 function iterate (display,config) {
 	model_go();

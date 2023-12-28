@@ -7,15 +7,20 @@ import {sigmoid} from "./utils.js"
 
 const N = param.N;
 const dt = param.dt;
+const s = sqlat(N).boundary("periodic").scale(2*N);
+const others_inradius = (a,others,R) => others.filter(b=> (torusdist(a,b,2*N) < R) )
 
 var agents = [];
+agents = s.nodes;
+each(agents,a=>{
+	a.nn_max_outer=others_inradius(a,agents,param.outer_radius.widget.range()[1])
+})
 
-const others_inradius = (a,others,R) => others.filter(b=> (torusdist(a,b,2*N) < R) )
 	
 
 const set_neighborhoods = (agents) => {
 	each(agents,a=>{ 
-		a.nn_outer = others_inradius(a,agents,param.outer_radius.widget.value()) 
+		a.nn_outer = others_inradius(a,a.nn_max_outer,param.outer_radius.widget.value()) 
 		a.nn_inner = others_inradius(a,a.nn_outer,param.inner_radius.widget.value()) 		
 	})	
 }
@@ -24,11 +29,13 @@ const initialize = () => {
 
 	param.timer={}; param.tick=0;
 
-	const s = sqlat(N).boundary("periodic").scale(2*N);
+	
 
-	agents = s.nodes;
+	
 	agents.forEach(a=>{a.state= 2 * param.epsilon * (Math.random()-0.5)});
-
+	
+	
+	
 	set_neighborhoods(agents);
 	
 };

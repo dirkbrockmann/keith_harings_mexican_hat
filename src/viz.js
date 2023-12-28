@@ -18,13 +18,6 @@ const S = d3.scaleLinear().domain([-1,1]).range([0,1]);
 var ctx,dL,W,H;
 
 
-const update = (display) => {
-	
-	display.selectAll(".node")
-		.style("fill", d => param.color_by_heading.widget.value() ? d3.interpolateSinebow(d.theta/2/Math.PI)  : "black")
-	
-}
-
 const cartoon_update = () => {
 	cartoon.selectAll("."+styles.outercircle)
 		.attr("r",d=> cfg.widgets.cartoon_scale*d.widget.value())
@@ -76,4 +69,4 @@ const go = (display,config) => {
 }
 
 
-export {initialize,go,update,cartoon_update}
+export {initialize,go,cartoon_update}
