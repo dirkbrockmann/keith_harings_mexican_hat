@@ -1,18 +1,18 @@
 export default {
 		dt:0.1,
-		N:50,
-		epsilon:0.01, // initial noise
+		N:35,
+		epsilon:0.005, // initial noise
    	 	inner_radius: {
-			range:[1,5],
-			default:3.5
+			range:[0.6,3],
+			default:1.5
 		},
 		outer_radius: {
-			range:[5.5,10],
-			default:7.0
+			range:[3.5,7],
+			default:4.0
 		},
 		interaction_steepness:{
-			range : [5,20],
-			default : 15
+			range : [2,15],
+			default : 8
 		}
 }
 

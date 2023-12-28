@@ -12,7 +12,7 @@ export default {
 		backbutton_anchor:{x:4,y:5},
 		resetbutton_anchor:{x:2,y:5},
 		cartoon_anchor:{x:8,y:3.5},
-		cartoon_scale:5
+		cartoon_scale:15
 	},
 	simulation: {
 		delay:0,

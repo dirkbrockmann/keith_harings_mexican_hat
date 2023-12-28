@@ -2,7 +2,7 @@
   "name": "@explorables/keith_harings_mexican_hat",
   "title": "Keith Haring's Mexican Hat",
   "subtitle":"Pattern Formation by Local Excitation and Long-Range Inhibition",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "license": "CC-BY-4.0",
   "description": "This explorable illustrates spontaneous pattern formation in a spatial model in which points on a lattice interact by local positive feedback and negative long-range feedback.",
   "repository": {
