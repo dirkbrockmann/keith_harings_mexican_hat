@@ -16,7 +16,6 @@ each(agents,a=>{
 	a.nn_max_outer=others_inradius(a,agents,param.outer_radius.widget.range()[1])
 })
 
-	
 
 const set_neighborhoods = (agents) => {
 	each(agents,a=>{ 
@@ -28,14 +27,7 @@ const set_neighborhoods = (agents) => {
 const initialize = () => {
 
 	param.timer={}; param.tick=0;
-
-	
-
-	
 	agents.forEach(a=>{a.state= 2 * param.epsilon * (Math.random()-0.5)});
-	
-	
-	
 	set_neighborhoods(agents);
 	
 };
