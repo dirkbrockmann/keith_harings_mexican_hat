@@ -2,7 +2,7 @@
   "name": "@explorables/keith_harings_mexican_hat",
   "title": "Keith Haring's Mexican Hat",
   "subtitle": "Pattern Formation by Local Excitation and Long-Range Inhibition",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "license": "CC-BY-4.0",
   "description": "This explorable illustrates spontaneous pattern formation in a spatial model in which points on a lattice interact by local positive feedback and negative long-range feedback.",
   "repository": {
@@ -17,7 +17,7 @@
     "build": "webpack --mode production ",
     "dev": "webpack serve --static dist/ --mode development",
     "show": "http-server dist -o",
-	 "pap": "git add . ; git commit -m \"$npm_package_version\"; git push; npm version patch; npm publish "
+    "pap": "git add . ; git commit -m \"$npm_package_version\"; git push; npm version patch; npm publish "
   },
   "keywords": [
     "complexity",
