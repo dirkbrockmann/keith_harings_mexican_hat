@@ -15,7 +15,7 @@ export default {
 		cartoon_scale:10
 	},
 	simulation: {
-		delay:0,
+		delay:10,
 		colormap:"gray"
 	}
 }
