@@ -4,7 +4,7 @@
   "subtitle": "Pattern Formation by Local Excitation and Long-Range Inhibition",
   "description": "This explorable illustrates spontaneous pattern formation in a spatial model in which points on a lattice interact by local positive feedback and negative long-range feedback.",
   "author": "Dirk Brockmann (https://synosy.github.io)",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "license": "CC-BY-4.0",
   "repository": {
     "type": "git",
